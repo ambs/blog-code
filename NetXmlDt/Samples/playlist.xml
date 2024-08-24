@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist version="1" xmlns="http://xspf.org/ns/0/">
+    <title>Real Music Playlist</title>
+    <creator>Your Name</creator>
+    <date>2024-08-20T12:00:00</date>
+    <trackList>
+        <track>
+            <location>https://example.com/music/bohemian_rhapsody.mp3</location>
+            <title>Bohemian Rhapsody</title>
+            <creator>Queen</creator>
+            <album>A Night at the Opera</album>
+            <duration>354000</duration>
+        </track>
+        <track>
+            <location>https://example.com/music/stairway_to_heaven.mp3</location>
+            <title>Stairway to Heaven</title>
+            <creator>Led Zeppelin</creator>
+            <album>Led Zeppelin IV</album>
+            <duration>482000</duration>
+        </track>
+        <track>
+            <location>https://example.com/music/dont_stop_me_now.mp3</location>
+            <title>Don't Stop Me Now</title>
+            <creator>Queen</creator>
+            <album>Jazz</album>
+            <duration>210000</duration>
+        </track>
+        <track>
+            <location>https://example.com/music/imagine.mp3</location>
+            <title>Imagine</title>
+            <creator>John Lennon</creator>
+            <album>Imagine</album>
+            <duration>183000</duration>
+        </track>
+        <track>
+            <location>https://example.com/music/hotel_california.mp3</location>
+            <title>Hotel California</title>
+            <creator>Eagles</creator>
+            <album>Hotel California</album>
+            <duration>390000</duration>
+        </track>
+        <track>
+            <location>https://example.com/music/smells_like_teen_spirit.mp3</location>
+            <title>Smells Like Teen Spirit</title>
+            <creator>Nirvana</creator>
+            <album>Nevermind</album>
+            <duration>301000</duration>
+        </track>
+        <track>
+            <location>https://example.com/music/billie_jean.mp3</location>
+            <title>Billie Jean</title>
+            <creator>Michael Jackson</creator>
+            <album>Thriller</album>
+            <duration>294000</duration>
+        </track>
+        <track>
+            <location>https://example.com/music/comfortably_numb.mp3</location>
+            <title>Comfortably Numb</title>
+            <creator>Pink Floyd</creator>
+            <album>The Wall</album>
+            <duration>384000</duration>
+        </track>
+        <track>
+            <location>https://example.com/music/another_one_bites_the_dust.mp3</location>
+            <title>Another One Bites the Dust</title>
+            <creator>Queen</creator>
+            <album>The Game</album>
+            <duration>216000</duration>
+        </track>
+        <track>
+            <location>https://example.com/music/come_together.mp3</location>
+            <title>Come Together</title>
+            <creator>The Beatles</creator>
+            <album>Abbey Road</album>
+            <duration>259000</duration>
+        </track>
+    </trackList>
+</playlist>

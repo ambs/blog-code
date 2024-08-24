@@ -1,3 +1,4 @@
+using System.Net.Mail;
 using System.Text;
 using System.Xml.Linq;
 
@@ -5,7 +6,7 @@ namespace NetXmlDt;
 
 public class Element
 {
-    public Element(string tagName, IEnumerable<XAttribute> attributes, object? contents)
+    public Element(string tagName, IEnumerable<XAttribute> attributes, object? contents = null)
     {
         TagName = tagName;
         Content = contents;
@@ -34,7 +35,13 @@ public class Element
         return tag.ToString();
     }
 
-    public string TagName { get; }
+    public string TagName { get; set; }
     public Attributes Attributes { get; }
-    public object? Content { get; }
+    public object? Content { get; set; }
+
+    public Element SetTag(string name)
+    {
+        TagName = name;
+        return this;
+    }
 }

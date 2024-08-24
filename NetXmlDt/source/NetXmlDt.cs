@@ -8,12 +8,14 @@ public class NetXmlDt<T> where T : NetXmlDtProcessor, new()
     private readonly XDocument _document;
     private readonly T _processor;
     private readonly HashSet<string> _handlers;
+    private readonly Stack<Element> _path;
 
     public NetXmlDt(string contents)
     {
         _document = XDocument.Parse(contents);
+        _path = new Stack<Element>();
         _processor = new T();
-        _handlers = new HashSet<string>();
+        _handlers = [];
 
         var availableMethods = _processor.GetType().GetMethods();
         foreach (var method in availableMethods)
@@ -24,6 +26,8 @@ public class NetXmlDt<T> where T : NetXmlDtProcessor, new()
                 _handlers.Add(method.Name);
             }
         }
+
+        _processor._Initialize_(_path);
     }
 
     public object? Dt() => RecurseNode(_document);
@@ -44,14 +48,24 @@ public class NetXmlDt<T> where T : NetXmlDtProcessor, new()
 
     private object? RecurseNode(XElement node)
     {
-        var contents = Aggregator(node.Nodes().Select(RecurseNode));
+
         var name = node.Name.LocalName;
-        object? result;
-        var element = new Element(name, node.Attributes(), contents);
+        object? result = null;
+        var element = new Element(name, node.Attributes());
+
+        _path.Push(element);
+        element.Content = Aggregator(node.Nodes().Select(RecurseNode));
+        _path.Pop();
+
         if (_handlers.Contains(name))
         {
             var callback = _processor.GetType().GetMethod(name, [typeof(Element)]);
-            result = (string) (callback?.Invoke(_processor, [element]) ?? "");
+            if (callback is null) return null;
+
+            if (callback.ReturnType == typeof(void))
+                callback.Invoke(_processor, [element]);
+            else
+                result = (string) (callback.Invoke(_processor, [element]) ?? "");
         }
         else
             result = _processor.Default_(element);
