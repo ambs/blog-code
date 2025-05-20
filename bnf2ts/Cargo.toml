@@ -1,0 +1,10 @@
+[package]
+name = "bnf2ts"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tree-sitter="0.25.3"
+
+[dependencies.tree-sitter-bnf]
+path = "../tree-sitter-bnf"
